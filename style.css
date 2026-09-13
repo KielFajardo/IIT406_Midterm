@@ -50,6 +50,7 @@
 
     --background-parallax: -50px;
     --midground-parallax: -300px;
+    --midground-parallax2: 0px;
 
 }
 
@@ -116,12 +117,6 @@ body {
     animation-name: midground-parallax;
 }
 
-.foreground {
-    position: relative;
-    z-index: 1;
-    min-height: 100vw;
-}
-
 .glass-card {
     position: relative;
     top: 200px;
@@ -142,6 +137,13 @@ body {
     height: auto;
     display: block;
     border-radius: var(--radius);
+}
+
+.img-auto {
+    width: 1765px;
+    height: auto;
+    display: block;
+
 }
 
 .clear-card {
@@ -167,6 +169,19 @@ body {
     margin: var(--spacing-small);
 }
 
+.clear-card-large {
+    position: relative;
+    font-size: var(--font-size-base);
+    text-align: justify;
+    top: 100px;
+    left: 0px;
+    width: 95vw;
+    height: auto;
+    padding: var(--spacing-large);
+    margin: var(--spacing-large);
+}
+
+
 .text {
     font-size: var(--font-size-text);
     padding: 12px;
@@ -179,6 +194,17 @@ body {
     font-size: var(--font-size-text);
     padding: 12px;
     margin: 12px;
+}
+
+.recipe-list {
+    font-size: var(--font-size-text);
+    line-height: 1.8;
+    padding-left: 40px;
+    margin: 20px 0;
+}
+
+.recipe-list li {
+    margin-bottom: 12px;
 }
 
 .text-large {
@@ -207,13 +233,13 @@ body {
     }
 }
 
+
 .footer-container {
     position: fixed;
     bottom: -1px;
     height: 50px;
     left: 50%;
     width: 200vw;
-    transform: translateX(-50%);
     z-index: 9999;
     padding: 16px;
     text-align: center;
@@ -244,7 +270,7 @@ body {
         scale(0.990);
     align-items:center;
     font-size: 12px;
-    background: var(--glass-background-color);
+    background: var(--glass-background);
 }
 
 .header-container {
@@ -301,6 +327,13 @@ body {
 .main-title {
     font-size: var(--font-size-main-title);
     font-family: var(--font-main);
+}
+
+.main-title-2 {
+    text-align: center;
+    font-size: 100px;
+    font-family: var(--font-main);
+    padding: 18px;
 }
 
 .page-container {
@@ -434,4 +467,407 @@ body {
 
 .main-content {
     padding: var(--spacing-medium);
+}
+
+.circle-checkbox {
+    display: none;
+}
+
+.circle-button {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border: 1px solid rgba(5, 4, 0, 0.4);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.089);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transform: translate(-50%, -50%) scale(0);
+    transition:
+        transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+        opacity 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.circle-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: var(--border);
+    transition: var(--transition-hover);
+    transform: scale(1.5);
+    float: left;
+    margin: 50px 120px 90px 80px;
+}
+
+.circle-img:hover {
+    transform: scale(1.62);
+    background: var(--hover-color);
+}
+
+.circle-button img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.circle-button:hover {
+    border-color: rgb(255, 225, 0);
+    background-color:rgb(255, 225, 0);
+    box-shadow: 0 0 25px rgba(245, 245, 243, 0.5);
+}
+
+.circle-center {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    color: var(--text-color);
+    background: rgba(3, 0, 0, 0.25);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(5, 4, 0, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 9;
+    transition:
+        transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+        background 0.45s ease;
+}
+
+.circle-center:hover {
+    background: rgb(255, 225, 0);
+    color: black;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.circle-checkbox:checked ~ .circle-buttons .circle-button {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.circle-checkbox:checked ~ .circle-buttons .circle-button-1 {
+    transform: translate(-50%, -50%) translateY(-250px) scale(1);
+}
+
+.circle-checkbox:checked ~ .circle-buttons .circle-button-2 {
+    transform: translate(-50%, -50%) translate(250px, -80px) scale(1);
+}
+
+.circle-checkbox:checked ~ .circle-buttons .circle-button-3 {
+    transform: translate(-50%, -50%) translate(153px, 217px) scale(1);
+}
+
+.circle-checkbox:checked ~ .circle-buttons .circle-button-4 {
+    transform: translate(-50%, -50%) translate(-153px, 217px) scale(1);
+}
+
+.circle-checkbox:checked ~ .circle-buttons .circle-button-5 {
+    transform: translate(-50%, -50%) translate(-250px, -80px) scale(1);
+}
+
+.circle-checkbox:checked ~ .circle-buttons .circle-button-1:hover {
+    transform: translate(-50%, -50%) translateY(-250px) scale(1.2);
+    z-index: 30;
+}
+
+.circle-checkbox:checked ~ .circle-buttons .circle-button-2:hover {
+    transform: translate(-50%, -50%) translate(250px, -80px) scale(1.2);
+    z-index: 30;
+}
+
+.circle-checkbox:checked ~ .circle-buttons .circle-button-3:hover {
+    transform: translate(-50%, -50%) translate(153px, 217px) scale(1.2);
+    z-index: 30;
+}
+
+.circle-checkbox:checked ~ .circle-buttons .circle-button-4:hover {
+    transform: translate(-50%, -50%) translate(-153px, 217px) scale(1.2);
+    z-index: 30;
+}
+
+.circle-checkbox:checked ~ .circle-buttons .circle-button-5:hover {
+    transform: translate(-50%, -50%) translate(-250px, -80px) scale(1.2);
+    z-index: 30;
+}
+
+.recipe5-page {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    padding-top: 1px;
+}
+
+.recipe5-content {
+    width: 100%;
+    padding: 160px 30px 110px;
+    position: relative;
+    z-index: 2;
+}
+
+.recipe5-card {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    background: rgba(17, 16, 1, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(5, 4, 0, 0.4);
+    border-radius: 12px;
+    transition: 0.35s ease;
+}
+
+.recipe5-card:hover {
+    background: rgba(243, 231, 231, 0.021);
+    transform: scale(1.009);
+}
+
+.recipe5-title {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 60px;
+}
+
+.recipe5-image {
+    width: 300px;
+    height: 300px;
+    display: block;
+    margin: 30px auto 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(5, 4, 0, 0.4);
+    transition: 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.recipe5-image:hover {
+    transform: scale(1.12);
+    background-color: rgb(255, 225, 0);
+}
+
+.recipe5-section {
+    width: 100%;
+    margin: 40px 0;
+}
+
+.recipe5-section h2 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+
+.recipe5-section p {
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+.recipe5-ingredient-table,
+.recipe5-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.recipe5-ingredient-table th,
+.recipe5-ingredient-table td,
+.recipe5-details-table th,
+.recipe5-details-table td {
+    padding: 15px;
+    border: 1px solid rgba(254, 254, 255, 0.3);
+    text-align: left;
+}
+
+.recipe5-ingredient-table th,
+.recipe5-details-table th {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.recipe5-ingredient-table tr,
+.recipe5-details-table tr {
+    transition: 0.3s ease;
+}
+
+.recipe5-ingredient-table tr:hover,
+.recipe5-details-table tr:hover {
+    background: rgba(255, 225, 0, 0.12);
+}
+
+.recipe5-details-table th[colspan="2"] {
+    text-align: center;
+    font-size: 23px;
+}
+
+.recipe5-steps,
+.recipe5-tips {
+    padding-left: 40px;
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.recipe5-steps li {
+    margin-bottom: 12px;
+    padding-left: 5px;
+}
+
+.recipe5-tips li {
+    margin-bottom: 10px;
+}
+
+.recipe5-quote {
+    margin: 20px 0;
+    padding: 25px;
+    border-left: 4px solid rgb(255, 225, 0);
+    background: rgba(17, 16, 1, 0.3);
+    border-radius: 12px;
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+.recipe5-quote strong {
+    color: rgb(255, 225, 0);
+}
+
+.about-content {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 160px 30px 110px;
+}
+
+#about-intro {
+    padding: 45px;
+    margin-bottom: 45px;
+    text-align: center;
+    background: rgba(17, 16, 1, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(5, 4, 0, 0.4);
+    border-radius: 12px;
+}
+
+#about-intro h1 {
+    margin-bottom: 20px;
+    font-size: 55px;
+}
+
+#about-intro p {
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+.card-section {
+    margin-bottom: 50px;
+}
+
+.card-section > h2 {
+    margin-bottom: 25px;
+    font-size: 35px;
+    text-align: center;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.info-card,
+.fact-card {
+    padding: 30px;
+    min-height: 230px;
+    background: rgba(17, 16, 1, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(5, 4, 0, 0.4);
+    border-radius: 12px;
+    transition: 0.35s ease;
+}
+
+.info-card:hover,
+.fact-card:hover {
+    background: rgba(0, 0, 0, 0.5);
+    transform: translateY(-8px);
+}
+
+.info-card h3,
+.fact-card h3 {
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+
+.info-card p,
+.fact-card p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.info-card .tip {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(254, 254, 255, 0.25);
+    font-size: 15px;
+}
+
+.info-card .tip::first-letter {
+    color: rgb(255, 225, 0);
+}
+
+#culture-note {
+    padding: 40px;
+    margin-top: 20px;
+    background: rgba(17, 16, 1, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(5, 4, 0, 0.4);
+    border-radius: 12px;
+}
+
+#culture-note h2 {
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+
+#culture-note p {
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+#culture-note p + p {
+    margin-top: 20px;
+}
+
+
+@media (max-width: 800px) {
+    .card-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 550px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #about-intro h1 {
+        font-size: 40px;
+    }
+
+    .about-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
