@@ -105,14 +105,14 @@ body {
 
 .background-layer {
     height: 100vw;
-    background-image: url("assets/background-home.png");
+    background-image: url("../IIT406_Midterm/assets/background-home.png");
     z-index: 0;
     animation-name: background-parallax;
 }
 
 .midground-layer {
     height: 100vw;
-    background-image: url("assets/midground-home.png");
+    background-image: url("../IIT406_Midterm/assets/midground-home.png");
     z-index: 2;
     animation-name: midground-parallax;
 }
