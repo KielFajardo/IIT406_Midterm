@@ -105,14 +105,14 @@ body {
 
 .background-layer {
     height: 100vw;
-    background-image: url("../assets/Background-Home.png");
+    background-image: url("assets/Background-Home.png");
     z-index: 0;
     animation-name: background-parallax;
 }
 
 .midground-layer {
     height: 100vw;
-    background-image: url("../assets/Midground-Home.png");
+    background-image: url("assets/Midground-Home.png");
     z-index: 2;
     animation-name: midground-parallax;
 }
