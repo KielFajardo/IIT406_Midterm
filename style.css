@@ -880,3 +880,12 @@ div.info-card {
     width: 100%;
     min-width: 0;
 }
+
+.references-content .card-section > h2 {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    color: rgb(255, 225, 0);
+    position: relative;
+    z-index: 5;
+}
